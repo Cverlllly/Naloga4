@@ -1,3 +1,3 @@
-C:/Users/Admin/CLionProjects/Naloga4/cmake-build-debug/CMakeFiles/Naloga4.dir
-C:/Users/Admin/CLionProjects/Naloga4/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Admin/CLionProjects/Naloga4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Cverle/CLionProjects/Naloga4/cmake-build-debug/CMakeFiles/Naloga4.dir
+C:/Users/Cverle/CLionProjects/Naloga4/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Cverle/CLionProjects/Naloga4/cmake-build-debug/CMakeFiles/rebuild_cache.dir

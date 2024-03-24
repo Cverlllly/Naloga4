@@ -6,9 +6,9 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(Naloga4 main.cpp
         Location.cpp
         Location.h
-        EventAgeGroup.cpp
-        EventAgeGroup.h
         Event.h
         Event.cpp
         Date.h
-        Date.cpp)
+        Date.cpp
+        EventOrganizer.cpp
+        EventOrganizer.h)

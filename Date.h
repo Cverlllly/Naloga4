@@ -43,7 +43,7 @@ public:
 
     static unsigned int getDaysInMonth(unsigned int month, unsigned int year);
 
-    string toString();
+    string toString() const;
 
     static unsigned int setLeapYearDays(unsigned int year);
 };

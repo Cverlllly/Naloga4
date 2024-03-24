@@ -59,7 +59,7 @@ Date::Date(unsigned int day, unsigned int month, unsigned int year) {
     }
 }
 
-string Date::toString() {
+string Date::toString() const{
     return to_string(day) + "." + to_string(month) + "." + to_string(year);
 }
 

@@ -2,55 +2,94 @@
 #include <iostream>
 #include "Location.h"
 #include "Date.h"
-#include "EventAgeGroup.h"
+//#include "magicenum.hpp"
 
-using namespace std;
 
-Event::Event(int id, const std::string &name, const Date &date, const Location &location, float price, int tickets,
-             EventAgeGroup age)
-        : eventId(id), eventName(name), eventDate(date), eventLocation(location), ticketPrice(price),
-          numTickets(tickets), ageGroup(age) {
-    this->id=id;
-    this->title=name;
-    this->date=date;
-    this->location=location;
-    this->price=price;
-    this->numTickets=tickets;
-    this->group=age;
 
+Event::Event(unsigned int eventId, const std::string &eventName, float eventPrice, unsigned int tickets,
+             const Location &eventLocation, const Date &eventDate, EventAgeGroup eventGroup)
+        : id(eventId), title(eventName), price(eventPrice), numTickets(tickets),
+          location(eventLocation), date(eventDate), group(eventGroup) {}
+
+// Getters
+unsigned int Event::getId() const {
+    return id;
 }
 
-string Event::getTitle() {
+std::string Event::getTitle() const {
     return title;
 }
 
-void Event::setTitle(string title) {
-    this->title = title;
-}
-
-float Event::getPrice() {
+float Event::getPrice() const {
     return price;
 }
 
-void Event::setPrice(float price) {
-    this->price = price;
-}
-
-unsigned int Event::getNumTickets() {
+unsigned int Event::getNumTickets() const {
     return numTickets;
 }
 
-void Event::setNumTickets(unsigned int numTickets) {
-    this->numTickets = numTickets;
+Location Event::getLocation() const {
+    return location;
 }
 
-string Event::toString() {
-    return "Event: " + title + ", Price: " + to_string(price) + ", Tickets Available: " + to_string(numTickets);
+Date Event::getDate() const {
+    return date;
 }
 
-void Event::print() {
-    cout << "Event: " << title << endl;
-    cout << "Price: " << price << endl;
-    cout << "Tickets Available: " << numTickets << endl;
+EventAgeGroup Event::getGroup() const {
+    return group;
 }
+
+// Setters
+void Event::setId(unsigned int eventId) {
+    id = eventId;
+}
+
+void Event::setTitle(const std::string &eventName) {
+    title = eventName;
+}
+
+void Event::setPrice(float eventPrice) {
+    price = eventPrice;
+}
+
+void Event::setNumTickets(unsigned int tickets) {
+    numTickets = tickets;
+}
+
+void Event::setLocation(const Location &eventLocation) {
+    location = eventLocation;
+}
+
+void Event::setDate(const Date &eventDate) {
+    date = eventDate;
+}
+
+void Event::setGroup(EventAgeGroup eventGroup) {
+    group = eventGroup;
+}
+
+void Event::print() const {
+    cout << to_string();
+}
+
+std::string Event::to_string() const {
+    std::string eventString = "Event ID: " + std::to_string(id) + "\n";
+    eventString += "Title: " + title + "\n";
+    eventString += "Price: " + std::to_string(price) + "\n";
+    eventString += "Number of Tickets: " + std::to_string(numTickets) + "\n";
+    eventString += "Location: " + location.toString() + "\n";
+    eventString += "Date: " + date.toString() + "\n";
+    eventString += "Age Group: " + std::to_string(static_cast<int> (group)) + "\n";
+    return eventString;
+}
+
+bool Event::sellTicket() {
+    if (numTickets > 0) {
+        numTickets -= 1;
+        return true;
+    }
+    return false;
+}
+
 

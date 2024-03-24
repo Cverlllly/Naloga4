@@ -4,7 +4,13 @@
 #include <string>
 #include "Location.h"
 #include "Date.h"
-#include "EventAgeGroup.h"
+
+enum class EventAgeGroup {
+    Child,
+    Adult,
+    Senior,
+    All
+};
 
 class Event {
 private:
@@ -17,26 +23,46 @@ private:
     EventAgeGroup group;
 
 public:
-    Event(unsigned int id, std::string &title, float price, unsigned int numTickets, Location &location, Date &date,
-          EventAgeGroup &group);
+    Event(unsigned int eventId, const std::string &eventName, float eventPrice, unsigned int tickets,
+          const Location &eventLocation, const Date &eventDate, EventAgeGroup eventGroup);
 
-    std::string getTitle();
+    // Getters
+    unsigned int getId() const;
 
-    void setTitle(std::string title);
+    std::string getTitle() const;
 
-    float getPrice();
+    float getPrice() const;
 
-    void setPrice(float price);
+    unsigned int getNumTickets() const;
 
-    unsigned int getNumTickets();
+    Location getLocation() const;
 
-    void setNumTickets(unsigned int numTickets);
+    Date getDate() const;
 
-    std::string toString();
+    EventAgeGroup getGroup() const;
 
-    void print();
+    // Setters
+    void setId(unsigned int eventId);
 
-    int eventId;
+    void setTitle(const std::string &eventName);
+
+    void setPrice(float eventPrice);
+
+    void setNumTickets(unsigned int tickets);
+
+    void setLocation(const Location &eventLocation);
+
+    void setDate(const Date &eventDate);
+
+    void setGroup(EventAgeGroup eventGroup);
+
+    //Metode
+    std::string to_string() const;
+
+    void print() const;
+
+    bool sellTicket();
+
 };
 
 #endif //NALOGA2_EVENT_H
