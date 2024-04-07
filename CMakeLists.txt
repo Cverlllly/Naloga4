@@ -11,4 +11,6 @@ add_executable(Naloga4 main.cpp
         Date.h
         Date.cpp
         EventOrganizer.cpp
-        EventOrganizer.h)
+        EventOrganizer.h
+        Concert.cpp
+        Concert.h)

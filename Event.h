@@ -13,19 +13,22 @@ enum class EventAgeGroup {
 };
 
 class Event {
-private:
+protected:
     unsigned int id;
     std::string title;
     float price;
     unsigned int numTickets;
-    Location location;
+    Location *location;
     Date date;
     EventAgeGroup group;
 
 public:
     Event(unsigned int eventId, const std::string &eventName, float eventPrice, unsigned int tickets,
-          const Location &eventLocation, const Date &eventDate, EventAgeGroup eventGroup);
+          Location *eventLocation, const Date &eventDate, EventAgeGroup eventGroup);
 
+    explicit Event(unsigned int id);
+
+    ~Event();
     // Getters
     unsigned int getId() const;
 
@@ -35,29 +38,13 @@ public:
 
     unsigned int getNumTickets() const;
 
-    Location getLocation() const;
+    Location *getLocation() const;
 
     Date getDate() const;
 
     EventAgeGroup getGroup() const;
 
-    // Setters
-    void setId(unsigned int eventId);
-
-    void setTitle(const std::string &eventName);
-
-    void setPrice(float eventPrice);
-
-    void setNumTickets(unsigned int tickets);
-
-    void setLocation(const Location &eventLocation);
-
-    void setDate(const Date &eventDate);
-
-    void setGroup(EventAgeGroup eventGroup);
-
-    //Metode
-    std::string to_string() const;
+    virtual std::string toString() const;
 
     void print() const;
 

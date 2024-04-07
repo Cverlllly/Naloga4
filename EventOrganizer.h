@@ -4,23 +4,29 @@
 
 #ifndef NALOGA4_EVENTORGANIZER_H
 #define NALOGA4_EVENTORGANIZER_H
+
 #include "Event.h"
-#include "vector"
+#include <vector> // Include the <vector> header for using std::vector
 
 class EventOrganizer {
 private:
     std::string name;
     std::string webAddress;
-    vector<Event> events;
+    std::vector<Event*> events;
 public:
-    EventOrganizer(const std::string &name,const std::string webAddress);
+    EventOrganizer(const std::string &name, const std::string &webAddress); // Added missing & symbol
 
-    void addEvent(const Event &event);
+    ~EventOrganizer();
+
+    void addEvent(Event* event);
 
     void sellTicket(unsigned int eventId);
 
     std::string toString() const;
+
+    std::vector<Event*> findEventByLocation(Location *location) const; // Return type should be std::vector<Event*>
+
 };
 
-
 #endif //NALOGA4_EVENTORGANIZER_H
+
