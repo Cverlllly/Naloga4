@@ -20,11 +20,14 @@ public:
 
     void addEvent(Event* event);
 
+
     void sellTicket(unsigned int eventId);
 
     std::string toString() const;
 
-    std::vector<Event*> findEventByLocation(Location *location) const; // Return type should be std::vector<Event*>
+    std::vector<Event*> findEventByLocation(Location *location) const;
+
+    void sort(bool (*f)(Event*, Event*));
 
 };
 

@@ -1,8 +1,9 @@
 //
 // Created by Cverle on 24/03/2024.
 //
-
+#include "algorithm"
 #include "EventOrganizer.h"
+
 
 EventOrganizer::EventOrganizer(const std::string &name, const std::string &webAddress)
         : name(name), webAddress(webAddress) {}
@@ -44,3 +45,8 @@ vector<Event*> EventOrganizer::findEventByLocation(Location *loc) const {
     }
     return eventi;
 }
+
+void EventOrganizer::sort(bool (*f)(Event *, Event *)) {
+    std::sort(events.begin(), events.end(), f);
+}
+
